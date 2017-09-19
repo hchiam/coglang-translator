@@ -1,9 +1,12 @@
 # Cognate Language Translator
 
-API: https://coglang-translator.glitch.me/
+API: <a href="https://coglang-translator.glitch.me" target="_blank">https://coglang-translator.glitch.me</a>
+
+Glitch web API version of <a href="https://github.com/hchiam/cognateLanguage/blob/master/repeatTranslation_oneFile.py" target="_blank">
+https://github.com/hchiam/cognateLanguage/blob/master/repeatTranslation_oneFile.py</a>
 
 Related GitHub Repos:
 
-https://github.com/hchiam/language-user-interface
+<a href="https://github.com/hchiam/language-user-interface" target="_blank">https://github.com/hchiam/language-user-interface</a>
 
-https://github.com/hchiam/cognateLanguage
+<a href="https://github.com/hchiam/cognateLanguage" target="_blank">https://github.com/hchiam/cognateLanguage</a>
