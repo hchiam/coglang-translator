@@ -60,6 +60,7 @@ app.route('/:english')
       // go through each English word
       for (var i in requestData) {
         var engWord = requestData[i];
+        engWord = replaceOneWords(engWord); // a/an/1 -> one
         var cogWord = dictionary[engWord];
         var lastIndex = engWord.length-1;
         // set response data
@@ -152,4 +153,12 @@ function getShortForm(cog) {
     }
   }
   return cog.slice(0,indexStopBefore);
+}
+
+function replaceOneWords(word) { // a/an/1 -> one
+  if (word === 'a' || word === 'an' || word === '1') {
+    return 'one';
+  } else {
+    return word;
+  }
 }
