@@ -68,7 +68,7 @@ app.route('/:english')
           outputData.long += cogWord + ' ';
           outputData.short += getShortForm(cogWord) + ' ';
         } else if (engWord[lastIndex] === 's' && engWord.slice(0,lastIndex) in dictionary) {
-          cogWord = dictionary['many'] + dictionary[engWord.slice(0,lastIndex)];
+          cogWord = dictionary['many'] + ' ' + dictionary[engWord.slice(0,lastIndex)];
           outputData.long += cogWord + ' ';
           outputData.short += getShortForm(cogWord) + ' ';
         } else {
