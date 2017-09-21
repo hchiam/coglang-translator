@@ -40,7 +40,10 @@ app.route('/:english')
     console.log('some kind of custom request');
     
     // get request parameter data
-    var requestData = req.params.english.split(' ');
+    var requestData = req.params.english;
+    requestData = requestData.toLowerCase();
+    requestData = requestData.replace(/  +/g,' '); // (multiple -> single) spaces
+    requestData = requestData.split(' '); // split into words
     
     // set up response data
     var outputData = {long:'',short:''};
@@ -57,8 +60,13 @@ app.route('/:english')
       for (var i in requestData) {
         var engWord = requestData[i];
         var cogWord = dictionary[engWord];
+        var lastIndex = engWord.length-1;
         // set response data
         if (engWord in dictionary) {
+          outputData.long += cogWord + ' ';
+          outputData.short += getShortForm(cogWord) + ' ';
+        } else if (engWord[lastIndex] === 's' && engWord.slice(0,lastIndex) in dictionary) {
+          cogWord = dictionary['many'] + dictionary[engWord.slice(0,lastIndex)];
           outputData.long += cogWord + ' ';
           outputData.short += getShortForm(cogWord) + ' ';
         } else {

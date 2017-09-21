@@ -7,6 +7,8 @@ https://github.com/hchiam/cognateLanguage/blob/master/repeatTranslation_oneFile.
 
 Related GitHub Repos:
 
+<a href="https://github.com/hchiam/coglang-translator" target="_blank">https://github.com/hchiam/coglang-translator</a>
+
 <a href="https://github.com/hchiam/language-user-interface" target="_blank">https://github.com/hchiam/language-user-interface</a>
 
 <a href="https://github.com/hchiam/cognateLanguage" target="_blank">https://github.com/hchiam/cognateLanguage</a>
