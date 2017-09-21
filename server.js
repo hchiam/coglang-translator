@@ -43,6 +43,7 @@ app.route('/:english')
     var requestData = req.params.english;
     requestData = requestData.toLowerCase();
     requestData = requestData.replace(/  +/g,' '); // (multiple -> single) spaces
+    requestData = requestData.replace(/[-,.!;:'"]/g,''); // replace punctuation
     requestData = requestData.split(' '); // split into words
     
     // set up response data
