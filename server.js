@@ -54,12 +54,17 @@ app.route('/:english')
       var dictionary = createDictionary(data);
       
       // go through each English word
-      for (var e in requestData) {
-        var engWord = requestData[e];
+      for (var i in requestData) {
+        var engWord = requestData[i];
         var cogWord = dictionary[engWord];
         // set response data
-        outputData.long += cogWord + ' ';
-        outputData.short += getShortForm(cogWord) + ' ';
+        if (engWord in dictionary) {
+          outputData.long += cogWord + ' ';
+          outputData.short += getShortForm(cogWord) + ' ';
+        } else {
+          outputData.long += '[?]' + ' ';
+          outputData.short += '[?]' + ' ';
+        }
       }
       
       // clean up response data
