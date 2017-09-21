@@ -68,7 +68,7 @@ app.route('/:english')
           outputData.long += cogWord + ' ';
           outputData.short += getShortForm(cogWord) + ' ';
         } else if (engWord[lastIndex] === 's' && engWord.slice(0,lastIndex) in dictionary) {
-          cogWord = dictionary['many'] + dictionary[engWord.slice(0,lastIndex)];
+          cogWord = dictionary[engWord.slice(0,lastIndex)]; // may be plural or verb conjugation
           outputData.long += cogWord + ' ';
           outputData.short += getShortForm(cogWord) + ' ';
         } else {
