@@ -54,7 +54,7 @@ app.route('/:english')
       if (err) {
         return console.log(err);
       }
-      console.log(data);
+      // console.log(data);
       var dictionary = createDictionary(data);
       
       // go through each English word
@@ -75,7 +75,7 @@ app.route('/:english')
           cogWord = dictionary[engWord.slice(0,lastIndex)].cog // may be plural or verb conjugation
           wordType = dictionary[engWord.slice(0,lastIndex)].type;
           if (wordType === 't') { // if plural
-            // track words and word types
+            // track words and word types, and add 'many' for plural
             outputData.long.push( [cogWord, wordType] );
             outputData.long.push( [dictionary['many'].cog, 'M'] );
             outputData.short.push( [getShortForm(cogWord), wordType] );
@@ -85,6 +85,13 @@ app.route('/:english')
             outputData.long.push( [cogWord, wordType] );
             outputData.short.push( [getShortForm(cogWord), wordType] );
           }
+        } else if (engWord.slice(-3) === "ing" && engWord.slice(0,-3) in dictionary) {
+          // check for '-ing' conjugation
+          cogWord = dictionary[engWord.slice(0,-3)].cog;
+          wordType = dictionary[engWord.slice(0,-3)].type;
+          // track words and word types
+          outputData.long.push( [cogWord, wordType] );
+          outputData.short.push( [getShortForm(cogWord), wordType] );
         } else {
           // track words and word types
           outputData.long.push( ['[?]', ''] );
