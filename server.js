@@ -47,7 +47,7 @@ app.route('/:english')
     requestData = requestData.split(' '); // split into words
     
     // set up response data
-    var outputData = {long:'',short:''};
+    var outputData = {long:[],short:[]};
     
     // get dictionary before translate
     fs.readFile('output_shortlist.txt', 'utf8', function (err,data) {
@@ -61,25 +61,60 @@ app.route('/:english')
       for (var i in requestData) {
         var engWord = requestData[i];
         engWord = replaceOneWords(engWord); // a/an/1 -> one
-        var cogWord = dictionary[engWord];
+        var cogWord = '';
+        var wordType = '';
         var lastIndex = engWord.length-1;
         // set response data
         if (engWord in dictionary) {
-          outputData.long += cogWord + ' ';
-          outputData.short += getShortForm(cogWord) + ' ';
+          cogWord = dictionary[engWord].cog;
+          wordType = dictionary[engWord].type;
+          // track words and word types
+          outputData.long.push( [cogWord, wordType] );
+          outputData.short.push( [getShortForm(cogWord), wordType] );
         } else if (engWord[lastIndex] === 's' && engWord.slice(0,lastIndex) in dictionary) {
-          cogWord = dictionary[engWord.slice(0,lastIndex)]; // may be plural or verb conjugation
-          outputData.long += cogWord + ' ';
-          outputData.short += getShortForm(cogWord) + ' ';
+          cogWord = dictionary[engWord.slice(0,lastIndex)].cog // may be plural or verb conjugation
+          wordType = dictionary[engWord.slice(0,lastIndex)].type;
+          // track words and word types
+          outputData.long.push( [cogWord, wordType] );
+          outputData.long.push( [dictionary['many'].cog, 'M'] );
+          outputData.short.push( [getShortForm(cogWord), wordType] );
+          outputData.short.push( [getShortForm(dictionary['many'].cog), 'M'] );
         } else {
-          outputData.long += '[?]' + ' ';
-          outputData.short += '[?]' + ' ';
+          // track words and word types
+          outputData.long.push( ['[?]', ''] );
+          outputData.short.push( ['[?]', ''] );
+        }
+      }
+      
+      var pluralL = '';
+      var pluralS = '';
+      var tempL = '';
+      var tempS = '';
+      var ignore;
+      // put response data strings together, inserting plural when hit non-descriptor word
+      for (var i=parseInt(outputData.long.length)-1; i>=0; i--) {
+        if (outputData.long[i][1] === 'M') {
+          pluralL = outputData.long[i][0] + ' ';
+          pluralS = outputData.short[i][0] + ' ';
+          ignore = i-1;
+        } else if (i === 0) {
+          tempL = pluralL + outputData.long[i][0] + ' ' + tempL;
+          tempS = pluralS + outputData.short[i][0] + ' ' + tempS;
+        } else if (outputData.long[i][1] !== 'd' && i<ignore) {
+          tempL = outputData.long[i][0] + ' ' + pluralL + tempL;
+          tempS = outputData.short[i][0] + ' ' + pluralS + tempS;
+          // reset for next use, in case get to end
+          pluralL = '';
+          pluralS = '';
+        } else {
+          tempL = outputData.long[i][0] + ' ' + tempL;
+          tempS = outputData.short[i][0] + ' ' + tempS;
         }
       }
       
       // clean up response data
-      outputData.long = outputData.long.trim();
-      outputData.short = outputData.short.trim();
+      outputData.long = tempL.trim();
+      outputData.short = tempS.trim();
       
       // finally return JSON response
       res.type('json').send(outputData);
@@ -126,7 +161,8 @@ function createDictionary(str) { // creates a "hash table" for faster searching
     var entry = l[i].split(',');
     var eng = entry[1];
     var cog = entry[0];
-    ht[eng] = cog;
+    var typ = entry[entry.length-1];
+    ht[eng] = {'cog':cog,'type':typ};
   }
   return ht;
 }
