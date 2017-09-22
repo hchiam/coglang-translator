@@ -74,11 +74,17 @@ app.route('/:english')
         } else if (engWord[lastIndex] === 's' && engWord.slice(0,lastIndex) in dictionary) {
           cogWord = dictionary[engWord.slice(0,lastIndex)].cog // may be plural or verb conjugation
           wordType = dictionary[engWord.slice(0,lastIndex)].type;
-          // track words and word types
-          outputData.long.push( [cogWord, wordType] );
-          outputData.long.push( [dictionary['many'].cog, 'M'] );
-          outputData.short.push( [getShortForm(cogWord), wordType] );
-          outputData.short.push( [getShortForm(dictionary['many'].cog), 'M'] );
+          if (wordType === 't') { // if plural
+            // track words and word types
+            outputData.long.push( [cogWord, wordType] );
+            outputData.long.push( [dictionary['many'].cog, 'M'] );
+            outputData.short.push( [getShortForm(cogWord), wordType] );
+            outputData.short.push( [getShortForm(dictionary['many'].cog), 'M'] );
+          } else { // otherwise probably verb conjugation or something else, so ignore the 's'
+            // track words and word types
+            outputData.long.push( [cogWord, wordType] );
+            outputData.short.push( [getShortForm(cogWord), wordType] );
+          }
         } else {
           // track words and word types
           outputData.long.push( ['[?]', ''] );
@@ -98,9 +104,15 @@ app.route('/:english')
           pluralS = outputData.short[i][0] + ' ';
           ignore = i-1;
         } else if (i === 0) {
-          tempL = pluralL + outputData.long[i][0] + ' ' + tempL;
-          tempS = pluralS + outputData.short[i][0] + ' ' + tempS;
-        } else if (outputData.long[i][1] !== 'd' && i<ignore) {
+          if (outputData.long[i][0] === 'naglo') { // special case for 'the'
+            tempL = 'naglo ' + pluralL + tempL;
+            tempS = 'naglo ' + pluralS + tempS;
+          } else {
+            tempL = pluralL + outputData.long[i][0] + ' ' + tempL;
+            tempS = pluralS + outputData.short[i][0] + ' ' + tempS;
+          }
+        } else if ((outputData.long[i][1] !== 'd' || outputData.long[i][0] === 'naglo') && i<ignore) {
+          // stop at non-descriptor word or at word for 'the' ('naglo' in both long/short translations)
           tempL = outputData.long[i][0] + ' ' + pluralL + tempL;
           tempS = outputData.short[i][0] + ' ' + pluralS + tempS;
           // reset for next use, in case get to end
