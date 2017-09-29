@@ -119,7 +119,7 @@ app.route('/:english')
             tempS = pluralS + outputData.short[i][0] + ' ' + tempS;
           }
         } else if ((outputData.long[i][1] !== 'd' || isDeterminant(outputData.long[i][0])) && i<ignore) {
-          // stop at non-descriptor word or at word for 'the' ('naglo' in both long/short translations)
+          // stop at non-descriptor word or at word for 'the'/'that'/determiners ('naglo' in both long/short translations)
           tempL = outputData.long[i][0] + ' ' + pluralL + tempL;
           tempS = outputData.short[i][0] + ' ' + pluralS + tempS;
           // reset for next use, in case get to end
