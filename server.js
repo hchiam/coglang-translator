@@ -111,14 +111,14 @@ app.route('/:english')
           pluralS = outputData.short[i][0] + ' ';
           ignore = i-1;
         } else if (i === 0) {
-          if (outputData.long[i][0] === 'naglo') { // special case for 'the'
-            tempL = 'naglo ' + pluralL + tempL;
-            tempS = 'naglo ' + pluralS + tempS;
+          if (isDeterminant(outputData.long[i][0])) { // special case for 'the'/'that'/'their'/etc.
+            tempL = outputData.long[i][0] + pluralL + tempL;
+            tempS = outputData.long[i][0] + pluralS + tempS;
           } else {
             tempL = pluralL + outputData.long[i][0] + ' ' + tempL;
             tempS = pluralS + outputData.short[i][0] + ' ' + tempS;
           }
-        } else if ((outputData.long[i][1] !== 'd' || outputData.long[i][0] === 'naglo') && i<ignore) {
+        } else if ((outputData.long[i][1] !== 'd' || isDeterminant(outputData.long[i][0])) && i<ignore) {
           // stop at non-descriptor word or at word for 'the' ('naglo' in both long/short translations)
           tempL = outputData.long[i][0] + ' ' + pluralL + tempL;
           tempS = outputData.short[i][0] + ' ' + pluralS + tempS;
@@ -216,4 +216,20 @@ function replaceOneWords(word) { // a/an/1 -> one
   } else {
     return word;
   }
+}
+
+function isDeterminant(word) {
+  let check = getShortForm(word);
+  // check for "determinants": the/this/that/these/those/my/our/your/yours/his/her/their
+  return (check === 'naglo' || 
+          check === 'djestey' || 
+          check === 'nasev' || 
+          check === 'djactos' || 
+          check === 'nacos' || 
+          check === 'wodmoy' || 
+          check === 'wonwes' || 
+          check === 'nitum' || 
+          check === 'nimvwec' || 
+          check === 'tadsus' || 
+          check === 'tamkas');
 }
