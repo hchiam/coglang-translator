@@ -1,5 +1,8 @@
 yunsastempot,use,yun,usa,istemal,istemal,potrebi,a
 castahokanbi,be,ca,esta,ho,kana,bi,a
+castahokanbi,am,ca,esta,ho,kana,bi,a
+castahokanbi,is,ca,esta,ho,kana,bi,a
+castahokanbi,are,ca,esta,ho,kana,bi,a
 hwodostalkonpa,get,hwod,konsegi,pa,istalama,dostava,a
 yawizkertcahot,want,yaw,kere,tcah,awiz,hote,a
 djidelbansan,make,djidzaw,ase,bana,sana,dela,a
@@ -10,7 +13,9 @@ dawkolena,to,daw,a,ko,le,na,c
 cweprentaltsik,learn,cwe,aprende,sikh,talama,utci,a
 dyenkomhasan,computer,dyenaw,komputador,sanganak,hasub,kampyutir,t
 dzwosekarfaldel,do,dzwo,ase,kar,fal,dela,a
+dzwosekarfaldel,does,dzwo,ase,kar,fal,dela,a
 nanotpodsakad,able,nan,pode,sak,qadar,motc,a
+nanotpodsakad,can,nan,pode,sak,qadar,motc,a
 donkostcizvec,thing,donci,kosa,tciz,ce,vec,t
 delbicparaz,must,bici,debe,par,lazim,dolji,a
 tcivarah,go,tci,va,dja,rah,id,a
@@ -22,7 +27,10 @@ tsapalkilslov,word,tsa,palabra,cabd,kilma,slova,t
 kwaypedukushet,piece,kway,pedazo,tukra,heta,kusok,t
 wecporehkyopat,why,wecanma,porke,kyo,leh,patcimu,d
 nanihlanpriv,hi,nihaw,ola,namaste,ahlan,privet,d
+nanihlanpriv,hello,nihaw,ola,namaste,ahlan,privet,d
+nanihlanpriv,hey,nihaw,ola,namaste,ahlan,privet,d
 adyoslalvidzaypak,bye,dzaydjyen,adyos,alvida,ilaliqa,paka,d
+adyoslalvidzaypak,goodbye,dzaydjyen,adyos,alvida,ilaliqa,paka,d
 lyowsetcheh,six,lyow,seis,tcheh,sita,cest,d
 syetcabsem,seven,tci,syete,sat,saba,sem,d
 batcotamvos,eight,ba,otco,ath,tamaniya,vosim,d
@@ -51,16 +59,20 @@ djigutlgunecow,some,djiga,algunos,kutc,cowaya,neskalka,d
 cawpokolthornim,few,caw,poko,thora,qolayel,nimnogi,d
 tcitustantrog,other,tcita,otro,dusra,tani,drugoy,d
 yikwahdino,one,yi,uno,ek,wahed,adin,d
+yikwahdino,a,yi,uno,ek,wahed,adin,d
 ardvostnen,two,ar,dos,do,etnen,dva,d
 tresantintal,three,san,tres,tin,talata,tri,d
 kwatsarbatcit,four,sa,kwatro,tcar,arba,tcitiri,d
 wusinpyatham,five,wu,sinko,patc,hamsa,pyat,d
 dagrankebar,big,da,grande,bara,kebir,balcoy,d
+dagrankebar,large,da,grande,bara,kebir,balcoy,d
 tcanlartowdlam,long,tcan,largo,lamba,towil,dlini,d
 kwantcorwas,wide,kwan,antco,tcora,wase,ciroki,d
 grwesmotehowtol,thick,how,grweso,mota,tehin,tolsti,d
 djunpesbharteqtij,heavy,djun,pesado,bhari,teqil,tijoli,d
 cyawpektchotsogmal,small,cyaw,pekenyo,tchota,sogayar,malinki,d
+cyawpektchotsogmal,tiny,cyaw,pekenyo,tchota,sogayar,malinki,d
+cyawpektchotsogmal,little,cyaw,pekenyo,tchota,sogayar,malinki,d
 dwanatkorqos,short,dwan,korto,nata,qosayar,karotki,d
 estredjaytanski,narrow,djay,estretco,tang,dayaq,uski,d
 bawpadelofton,thin,baw,delgado,patla,rofaya,tonki,d
@@ -274,6 +286,7 @@ bunohlanyet,no,bu,no,nahi,la,nyet,d
 djapapumkagwar,paper,dja,papel,kagaz,waraq,bumaga,t
 telhadyen,telephone,dyenhwa,telefono,durbhas,hatif,telefon,t
 peranvyakcaktcil,person,ran,persona,vyakti,caks,tcilavek,t
+peranvyakcaktcil,people,ran,persona,vyakti,caks,tcilavek,t
 tcwankampalserkrav,bed,tcwan,kama,palang,serir,kravat,t
 tcwanvenkhircebkno,window,tcwanhu,ventana,khirki,cebak,akno,t
 djyastantakporaf,shelf,djya,estanteria,takhta,raf,polka,t
@@ -310,6 +323,7 @@ favatcinkrpaj,please,tcin,favor,krpya,fadlak,pajalusta,d
 dweblosfimaf,sorry,dwebutci,losyento,maf,asif,izvinit,d
 gucihapasnrav,like,cihwan,gusta,pasand,haba,nravitsa,a
 kwaydjarapis,fast,kway,rapidamente,djaldi,sura,bistra,d
+kwaydjarapis,quick,kway,rapidamente,djaldi,sura,bistra,d
 panladbagan,beside,panbyen,lado,bagal,ganb,radam,c
 tcyanadfwerqawsil,strong,tcyan,fwerte,madjabut,qawiy,silni,d
 dantazdasper,wait,dan,espera,intazar,intazara,jda,a
@@ -322,6 +336,7 @@ tcyendinpesfel,money,tcyen,dinero,pesa,felus,dengi,t
 konyotchedirhuf,hole,kon,oyo,tched,hufra,dira,t
 tonacahglup,silly,ca,tonto,nasamadjh,sahif,glupi,d
 wanterkonha,finish,wan,termina,anta,anha,kontci,a
+wanterkonha,complete,wan,termina,anta,anha,kontci,a
 hwatcidibras,draw,hwa,dibuha,tcitrabana,rasama,risava,a
 fanuvtradarpir,translate,fanyi,tradusi,anuvad,tardjama,pirivadi,a
 baysyeniysosto,hundred,bay,syento,so,miya,sto,d
@@ -338,6 +353,8 @@ djinahoysiv,today,djintyen,oy,adj,inaharda,sivodna,d
 dzwotyerkalmbarftcir,yesterday,dzwotyen,ayer,kal,imbarih,ftcira,d
 minbukalzaf,tomorrow,mintyen,manyana,kal,bukra,zaftra,d
 cyonermansaqsib,sibling,cyondidjyemey,ermano,sahodar,caqiqa,siblink,t
+cyonermansaqsib,brother,cyondidjyemey,ermano,sahodar,caqiqa,siblink,t
+cyonermansaqsib,sister,cyondidjyemey,ermano,sahodar,caqiqa,siblink,t
 patcimatwarad,parent,tcin,padre,matapita,walid,raditil,t
 cyankam,camera,cyandji,kamara,kemra,kamera,kamira,t
 gadzwotapakos,cook,dzwotsay,kosina,pakana,tabaka,gatovi,a
@@ -353,7 +370,9 @@ surdakananyuk,south,nan,sur,daksin,ganub,yuk,d
 purcarvasdon,east,don,este,purva,carq,vastok,d
 pecipgar,west,ci,oeste,pactcim,garb,zapat,d
 tcyenamdelgefpir,forward,tcyen,adelante,age,amam,fpirot,d
+tcyenamdelgefpir,forwards,tcyen,adelante,age,amam,fpirot,d
 howarpitrasnaz,backward,how,atras,pitche,wara,nazat,d
+howarpitrasnaz,backwards,how,atras,pitche,wara,nazat,d
 naylabmaletud,milk,nay,letce,dudh,laban,malako,t
 poymurdadjikur,chicken,dji,poyo,murga,dadjadja,kuritsa,t
 mawgatbil,cat,maw,gato,bili,qut,kot,t
@@ -562,9 +581,7 @@ gamastotfwensrot,source,ganywen,fwente,srot,masdar,istotcnik,t
 tabvispesobhas,special,tabye,espesyal,vicec,has,asobi,d
 puntodyenuq,dot,dyen,punto,bindu,nuqta,totcka,t
 hayizaltodabtak,still,hay,todavia,abtak,zala,yico,d
-castahokanbi,am,ca,esta,ho,kana,bi,a
-castahokanbi,is,ca,esta,ho,kana,bi,a
-castahokanbi,are,ca,esta,ho,kana,bi,a
-dzwosekarfaldel,does,dzwo,ase,kar,fal,dela,a
 harbukcalidzam,literal,dzamyen,literal,akcarik,harfi,bukvalni,d
+harbukcalidzam,literally,dzamyen,literal,akcarik,harfi,bukvalni,d
 biyfiglakmagbraz,figurative,biyu,figurativo,lakcanik,magazi,obrazna,d
+biyfiglakmagbraz,figuratively,biyu,figurativo,lakcanik,magazi,obrazna,d
