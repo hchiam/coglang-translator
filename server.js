@@ -61,6 +61,7 @@ app.route('/:english')
       for (var i in requestData) {
         var engWord = requestData[i];
         engWord = replaceOneWords(engWord); // a/an/1 -> one
+        engWord = replaceSpecialWords(engWord); // e.g. people -> persons
         var cogWord = '';
         var wordType = '';
         var lastIndex = engWord.length-1;
@@ -216,6 +217,11 @@ function replaceOneWords(word) { // a/an/1 -> one
   } else {
     return word;
   }
+}
+
+function replaceSpecialWords(word) { // e.g. people -> persons
+  if (word === 'people') return 'persons';
+  return word;
 }
 
 function isDeterminant(word) {
