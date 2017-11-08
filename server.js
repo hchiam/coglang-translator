@@ -95,8 +95,8 @@ app.route('/:english')
           outputData.short.push( [getShortForm(cogWord), wordType] );
         } else {
           // track words and word types
-          outputData.long.push( ['[?]', ''] );
-          outputData.short.push( ['[?]', ''] );
+          outputData.long.push( ["[" + engWord + "]", ''] );
+          outputData.short.push( ["[" + engWord + "]", ''] );
         }
       }
       
