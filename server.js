@@ -93,6 +93,13 @@ app.route('/:english')
           // track words and word types
           outputData.long.push( [cogWord, wordType] );
           outputData.short.push( [getShortForm(cogWord), wordType] );
+        } else if (engWord.slice(-2) === "ed" && engWord.slice(0,-2) in dictionary) {
+          // check for '-ed' conjugation
+          cogWord = dictionary[engWord.slice(0,-2)].cog;
+          wordType = dictionary[engWord.slice(0,-2)].type;
+          // track words and word types
+          outputData.long.push( [cogWord, wordType] );
+          outputData.short.push( [getShortForm(cogWord), wordType] );
         } else {
           // track words and word types
           outputData.long.push( ["[" + engWord + "]", ''] );
