@@ -584,3 +584,5 @@ harbukcalidzam,literal,dzamyen,literal,akcarik,harfi,bukvalni,d
 harbukcalidzam,literally,dzamyen,literal,akcarik,harfi,bukvalni,d
 biyfiglakmagbraz,figurative,biyu,figurativo,lakcanik,magazi,obrazna,d
 biyfiglakmagbraz,figuratively,biyu,figurativo,lakcanik,magazi,obrazna,d
+katmuzubalas,garbage,lasa,basura,katcra,zubala,musar,t
+balsumki,bag,baw,bolsa,beg,kisa,sumka,t
