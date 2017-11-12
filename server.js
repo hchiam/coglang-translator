@@ -49,6 +49,15 @@ app.route('/:english')
     // set up response data
     var outputData = {long:[],short:[]};
     
+    // "easter egg" hidden feature
+    if (detectPuzzleSolutionRequest(requestData.join(' '))) {
+      // immediately return JSON response
+      outputData.long = '[ Nice try. :) ]';
+      outputData.short = outputData.long;
+      res.type('json').send(outputData);
+      return;
+    }
+    
     // get dictionary before translate
     fs.readFile('output_shortlist.txt', 'utf8', function (err,data) {
       if (err) {
@@ -245,4 +254,8 @@ function isDeterminant(word) {
           check === 'nimvwec' || 
           check === 'tadsus' || 
           check === 'tamkas');
+}
+
+function detectPuzzleSolutionRequest(requestData) { // "easter egg" hidden feature
+  return (requestData === 'yikwah harwe ardvos castah kidwoc huh') || (requestData === 'yikwah harwe ardvos castah kidwoc');
 }
