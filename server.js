@@ -52,7 +52,7 @@ app.route('/:english')
     // "easter egg" hidden feature
     if (detectPuzzleSolutionRequest(requestData.join(' '))) {
       // immediately return JSON response
-      outputData.long = '[ Nice try. :) ]';
+      outputData.long = "[ Nice try. :) ]";
       outputData.short = outputData.long;
       res.type('json').send(outputData);
       return;
