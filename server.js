@@ -45,7 +45,13 @@ app.route('/:english')
     requestData = requestData.toLowerCase();
     requestData = requestData.replace(/  +/g,' '); // (multiple -> single) spaces
     requestData = requestData.replace(/[-,.!;:'"]/g,''); // replace punctuation
-    requestData = requestData.split(' '); // split into words
+    
+    // extra pre-processing with nlp-compromise
+    var doc = nlp(requestData);
+    requestData  = doc.verbs().toPresentTense().all().out('text');
+    
+    // split into words
+    requestData = requestData.split(' ');
     
     // set up response data
     var outputData = {long:[],short:[]};
