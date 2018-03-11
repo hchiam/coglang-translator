@@ -7,6 +7,7 @@
 
 const fs = require('fs');
 const express = require('express');
+const nlp = require('compromise');
 const app = express();
 
 if (!process.env.DISABLE_XORIGIN) {
