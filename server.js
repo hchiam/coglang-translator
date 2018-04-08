@@ -7,7 +7,6 @@
 
 const fs = require('fs');
 const express = require('express');
-const nlp = require('compromise');
 const app = express();
 
 if (!process.env.DISABLE_XORIGIN) {
@@ -45,10 +44,6 @@ app.route('/:english')
     requestData = requestData.toLowerCase();
     requestData = requestData.replace(/  +/g,' '); // (multiple -> single) spaces
     requestData = requestData.replace(/[-,.!;:'"]/g,''); // replace punctuation
-    
-    // extra pre-processing with nlp-compromise
-    var doc = nlp(requestData);
-    requestData  = doc.verbs().toPresentTense().all().out('text');
     
     // split into words
     requestData = requestData.split(' ');
