@@ -64,8 +64,8 @@ ardvostnen,two,ar,dos,do,etnen,dva,d
 tresantintal,three,san,tres,tin,talata,tri,d
 kwatsarbatcit,four,sa,kwatro,tcar,arba,tcitiri,d
 wusinpyatham,five,wu,sinko,patc,hamsa,pyat,d
-dagrankebar,big,da,grande,bara,kebir,balcoy,d
-dagrankebar,large,da,grande,bara,kebir,balcoy,d
+grandakebar,big,da,grande,bara,kebir,balcoy,d
+grandakebar,large,da,grande,bara,kebir,balcoy,d
 tcanlartowdlam,long,tcan,largo,lamba,towil,dlini,d
 kwantcorwas,wide,kwan,antco,tcora,wase,ciroki,d
 grwesmotehowtol,thick,how,grweso,mota,tehin,tolsti,d
