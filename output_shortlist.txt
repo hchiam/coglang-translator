@@ -216,7 +216,7 @@ ahmalarohunkras,red,hun,roho,lal,ahmar,krasni,d
 veliharhdarzil,green,li,verde,hara,ahdar,ziloni,d
 hwanarpilsfarjol,yellow,hwan,amariyo,pila,asfar,jolti,d
 baydblansaf,white,bay,blanko,safed,abyad,beli,d
-heynegalswedcor,black,hey,negro,kala,eswed,tcorni,d
+swheytcornekal,black,hey,negro,kala,eswed,tcorni,d
 yewnotlerat,night,yewan,notce,rat,lela,notc,t
 bayomdiadin,day,baytyen,dia,din,yom,den,t
 salsanyengot,year,nyen,anyo,sal,sana,got,t
@@ -756,3 +756,12 @@ haymorvalfaz,walrus,haycyan,morsa,valras,faz,morc,t
 songirdiybyel,xerus,soncu,ardiya,gilehri,sindjab,byelka,t
 mawyaktor,yak,mawnyo,yak,yak,tor,yak,t
 zebanhim,zebra,banma,sebra,zebra,himaralwahciy,zyebra,t
+tsumnilistcaduk,smart,tsonmin,listo,tcatur,duki,umni,d
+ghareltcicob,watch,cobyaw,reloh,ghari,sa,tcisi,t
+pindzezbot,bottle,pindza,boteya,botal,izeza,butilka,t
+mehcahywe,month,ywe,mes,mahina,cahr,mesits,t
+plagdaf,pay,fu,paga,bhugtan,dafa,plati,a
+nacdzawfet,breakfast,dzawfan,desayuno,nacta,fetar,zaftrak,t
+wufalmwergadobet,lunch,wufan,almwerso,dopharkakhana,gada,abet,t
+uswanrat,dinner,wanfan,sena,ratkakhana,aca,uzin,t
+lincakwadjbok,snack,linca,bokadiyo,nacta,wadjbaxafifa,zakuska,t
