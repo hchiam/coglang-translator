@@ -37,13 +37,13 @@ app.use('/public', express.static(process.cwd() + '/public'));
 
 app.route('/:english')
   .get(function(req, res, next) {
-    console.log('some kind of custom request');
+    // console.log('some kind of custom request', req.params.english);
     
     // get request parameter data
     var requestData = req.params.english;
     requestData = requestData.toLowerCase();
     requestData = requestData.replace(/  +/g,' '); // (multiple -> single) spaces
-    requestData = requestData.replace('?',' huh');
+    requestData = requestData.replace(/\?/g,' huh');
     requestData = requestData.replace(/[-,.!;:"]/g,''); // replace punctuation (notably inus ' and ?)
     
     // split into words
@@ -144,7 +144,7 @@ app.route('/:english')
             tempL = pluralL + outputData.long[i][0] + ' ' + tempL;
             tempS = pluralS + outputData.short[i][0] + ' ' + tempS;
           }
-        } else if ((outputData.long[i][1] !== 'd' || isDeterminant(outputData.long[i][0])) && i<ignore) {
+        } else if (outputData.long[i][1] !== '?' && (outputData.long[i][1] !== 'd' || isDeterminant(outputData.long[i][0])) && i<ignore) {
           // stop at non-descriptor word or at word for 'the'/'that'/determiners ('naglo' in both long/short translations)
           tempL = outputData.long[i][0] + ' ' + pluralL + tempL;
           tempS = outputData.short[i][0] + ' ' + pluralS + tempS;
