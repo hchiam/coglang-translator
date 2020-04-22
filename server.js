@@ -132,7 +132,7 @@ app.route('/:english')
         } else if (i === 0) {
           if (isDeterminant(outputData.long[i][0])) { // special case for 'the'/'that'/'their'/etc.
             tempL = outputData.long[i][0] + ' ' + pluralL + tempL;
-            tempS = outputData.long[i][0] + ' ' + pluralS + tempS;
+            tempS = outputData.short[i][0] + ' ' + pluralS + tempS;
           } else {
             tempL = pluralL + outputData.long[i][0] + ' ' + tempL;
             tempS = pluralS + outputData.short[i][0] + ' ' + tempS;
