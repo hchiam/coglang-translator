@@ -43,7 +43,8 @@ app.route('/:english')
     var requestData = req.params.english;
     requestData = requestData.toLowerCase();
     requestData = requestData.replace(/  +/g,' '); // (multiple -> single) spaces
-    requestData = requestData.replace(/[-,.!;:'"]/g,''); // replace punctuation
+    requestData = requestData.replace('?',' huh');
+    requestData = requestData.replace(/[-,.!;:"]/g,''); // replace punctuation (notably inus ' and ?)
     
     // split into words
     requestData = requestData.split(' ');
@@ -111,7 +112,13 @@ app.route('/:english')
           // track words and word types
           outputData.long.push( [cogWord, wordType] );
           outputData.short.push( [getShortForm(cogWord), wordType] );
-        } else {
+        } else if (outputSpecialShortAndLongTranslations(engWord)) {
+          // check for things like "can't" or "cannot" -> becomes multiple words
+          var specialOutput = outputSpecialShortAndLongTranslations(engWord);
+          // track words and word types
+          outputData.long.push( [specialOutput.long, specialOutput.type] );
+          outputData.short.push( [specialOutput.short, specialOutput.type] );
+        } else if (engWord !== '') {
           // track words and word types
           outputData.long.push( ["[" + engWord + "]", ''] );
           outputData.short.push( ["[" + engWord + "]", ''] );
@@ -240,6 +247,22 @@ function replaceOneWords(word) { // a/an/1 -> one
 function replaceSpecialWords(word) { // e.g. people -> persons
   if (word === 'people') return 'persons';
   return word;
+}
+
+function outputSpecialShortAndLongTranslations(word) {
+  const output = {
+    short: '',
+    long: '',
+    type: ''
+  }
+  if (word === 'cannot' || word === "can't") {
+    output.short = 'buneh nanot';
+    output.long = 'bunehc nanotpodsakad';
+    output.type = 'a';
+  } else {
+    return false;
+  }
+  return output;
 }
 
 function isDeterminant(word) {
