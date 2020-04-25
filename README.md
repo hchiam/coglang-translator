@@ -2,9 +2,7 @@
 
 [![HitCount](http://hits.dwyl.io/hchiam/coglang-translator.svg)](http://hits.dwyl.io/hchiam/coglang-translator)
 
-## Front-facing interfaces:
-
-<a href="https://codepen.io/hchiam/full/JrKBgZ" target="_blank">https://codepen.io/hchiam/full/JrKBgZ</a>
+## Front-facing interface:
 
 <a href="https://codepen.io/hchiam/full/ZrXgYo" target="_blank">https://codepen.io/hchiam/full/ZrXgYo</a>
 
