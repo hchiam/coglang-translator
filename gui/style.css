@@ -1,0 +1,70 @@
+[v-cloak] {
+  /*hide vue syntax while page still loading*/
+  display: none;
+}
+
+* {
+  font-family: avenir, arial;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*and to let align-items center on screen:*/
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  background: #333;
+  color: whitesmoke;
+}
+
+#gofullpage,
+#go-to-read-aloud {
+  text-align: center;
+}
+
+#input-test {
+  text-align: center;
+  background: grey;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px black;
+}
+
+input {
+  background: lightgreen;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 2px 2px 7px black;
+  caret-color: red;
+}
+
+input:hover {
+  background: greenyellow;
+  box-shadow: 2px 2px 20px black;
+}
+
+#output-table {
+  background: #222;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px black;
+}
+
+a {
+  color: greenyellow;
+}
+
+a:hover,
+a:focus {
+  color: lime;
+}
+
+#suggestions-group {
+  text-align: center;
+  display: block;
+}

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CogLang Translator - Example GUI</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="get-data-from-server-app">
+      <p id="gofullpage"></p>
+      <div v-if="error != null" class="notification is-danger" v-cloak>
+        <button class="delete"></button>
+        {{error}}
+      </div>
+      <div id="input-test">
+        <input
+          id="input"
+          v-model="inpt"
+          v-on:input="loadData"
+          onmouseover="this.focus()"
+        />
+        <p>Searching for: <span v-cloak>{{inpt}}</span></p>
+      </div>
+      <table id="output-table" v-if="rsp != null" class="table">
+        <thead>
+          <tr>
+            <th colspan="2">Data from a server</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>short:</td>
+            <td v-cloak>{{rsp.short}}</td>
+          </tr>
+          <tr>
+            <td>long:</td>
+            <td v-cloak>{{rsp.long}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div id="suggestions">
+        <p v-if="unknownWord && suggestions.length === 0">
+          (Finding replacements for [{{unknownWord}}]...)
+        </p>
+        <p v-if="unknownWord && suggestions.length > 0">
+          Try replacing [{{unknownWord}}] with: {{suggestions.join(', ')}}
+        </p>
+      </div>
+      <!-- <p id='go-to-read-aloud'>Want this ↑ read aloud? Go <a href="https://codepen.io/hchiam/full/JrKBgZ/" target="_blank">here</a>.</p> -->
+    </div>
+    <script src="https://vuejs.org/js/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/vue.resource/1.0.3/vue-resource.min.js"></script>
+    <script>
+      new Vue({
+        el: "#get-data-from-server-app",
+        data: {
+          error: null,
+          rsp: null,
+          inpt: "hello world",
+          timer: null,
+          url_suggestions:
+            "https://text-similarity-test-microservice.glitch.me/",
+          unknownWord: "",
+          suggestions: [],
+        },
+        created: function () {
+          this.init();
+        },
+        computed: {
+          url: function () {
+            return (
+              "https://coglang-translator.glitch.me/" +
+              this.inpt.replace(/\?/g, "%3F")
+            );
+          },
+        },
+        methods: {
+          init: function () {
+            this.loadData();
+          },
+          loadData: function () {
+            // this.url = "https://coglang-translator.glitch.me/"
+            // this.url = this.url + this.inpt;
+            this.suggestions = [];
+            this.$http.get(this.url).then(
+              (response) => {
+                if (!!response.body) {
+                  this.rsp = response.body;
+                  if (this.rsp.short.includes("[")) {
+                    this.unknownWord = /\[([^\]]+?)\]/.exec(this.rsp.short)[1];
+                    clearTimeout(this.timer);
+                    this.timer = setTimeout(
+                      function () {
+                        this.getSuggestion(this.unknownWord);
+                      }.bind(this),
+                      3000
+                    );
+                  } else {
+                    this.unknownWord = "";
+                  }
+                }
+              },
+              (response) => {
+                this.error = response;
+              }
+            );
+          },
+          getSuggestion: function (unknownWord) {
+            this.$http.get(this.url_suggestions + unknownWord).then(
+              (response) => {
+                if (!!response.body) {
+                  console.log(JSON.stringify(response.body));
+                  this.suggestions = response.body.suggestions;
+                }
+              },
+              (response) => {
+                this.error = response;
+              }
+            );
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
