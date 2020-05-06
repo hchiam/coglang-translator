@@ -4,7 +4,7 @@
 
 ## Front-facing interface:
 
-<a href="https://codepen.io/hchiam/full/ZrXgYo" target="_blank">https://codepen.io/hchiam/full/ZrXgYo</a>
+<a href="https://codepen.io/hchiam/full/pojNLOj" target="_blank">https://codepen.io/hchiam/full/pojNLOj</a>
 
 (Or try [`/gui/index.html`](https://github.com/hchiam/coglang-translator/blob/master/gui/index.html))
 
