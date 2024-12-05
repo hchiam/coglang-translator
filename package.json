@@ -1,7 +1,7 @@
 {
 	"name": "coglang-translator",
 	"dependencies": {
-		"express": "^4.21.1"
+		"express": "^4.21.2"
 	},
 	"main": "server.js",
 	"scripts": {
